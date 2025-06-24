@@ -14,12 +14,14 @@ A powerful full-stack application that allows users to interact with databases u
 ## Tech Stack
 
 ### Frontend
-- **React** - Modern JavaScript framework
+- **React + Vite** - Modern JavaScript framework with fast build tool
+- **JSX** - React component syntax
+- **CSS** - Custom styling
 - **Hooks** (useState, useEffect, useRef) - State management and side effects
 - **Responsive Design** - Clean, modern UI
 
 ### Backend
-- **FastAPI** - High-performance Python web framework
+- **FastAPI** - High-performance Python web framework (app.py)
 - **LangChain** - AI/LLM integration framework
 - **Groq** - AI model provider for natural language processing
 - **SQLAlchemy** - SQL toolkit and ORM
@@ -39,13 +41,16 @@ A powerful full-stack application that allows users to interact with databases u
 1. Clone the repository:
 ```bash
 git clone https://github.com/sanjuGuna/communeDB.git
-cd communeDB
+cd COMMUNICATE_WITH_DATABASE
 ```
 
-2. Create a virtual environment:
+2. Create and activate virtual environment (if not exists):
 ```bash
 python -m venv venv
-source venv/bin/activate  # On Windows: venv\Scripts\activate
+# On Windows:
+venv\Scripts\activate
+# On macOS/Linux:
+source venv/bin/activate
 ```
 
 3. Install Python dependencies:
@@ -60,14 +65,16 @@ GROQ_API_KEY=your_groq_api_key_here
 
 5. Start the FastAPI server:
 ```bash
-uvicorn main:app --reload --port 8000
+python app.py
+# or
+uvicorn app:app --reload --port 8000
 ```
 
 ### Frontend Setup
 
-1. Navigate to the frontend directory:
+1. Navigate to the React app directory:
 ```bash
-cd frontend
+cd talk_with_sql_app
 ```
 
 2. Install dependencies:
@@ -75,9 +82,9 @@ cd frontend
 npm install
 ```
 
-3. Start the development server:
+3. Start the Vite development server:
 ```bash
-npm start
+npm run dev
 ```
 
 The application will be available at `http://localhost:3000`
@@ -156,19 +163,29 @@ Processes natural language prompts and executes database queries.
 ## Project Structure
 
 ```
-communeDB/
-├── backend/
-│   ├── main.py              # FastAPI application
-│   ├── database.py          # Database connection logic
-│   └── requirements.txt     # Python dependencies
-├── frontend/
-│   ├── src/
-│   │   ├── App.js          # Main React component
-│   │   └── index.js        # React entry point
+COMMUNICATE_WITH_DATABASE/
+├── talk_with_sql_app/
+│   ├── node_modules/        # Node.js dependencies
 │   ├── public/
-│   └── package.json        # Node.js dependencies
-├── .env                    # Environment variables
-└── README.md              # This file
+│   │   └── DB_Natural.png   # Project logo/image
+│   ├── src/
+│   │   ├── assets/          # Static assets
+│   │   ├── App.css         # Application styles
+│   │   ├── App.jsx         # Main React component
+│   │   ├── index.css       # Global styles
+│   │   └── main.jsx        # React entry point
+│   ├── .gitignore          # Git ignore rules
+│   ├── eslint.config.js    # ESLint configuration
+│   ├── index.html          # HTML template
+│   ├── package-lock.json   # Dependency lock file
+│   ├── package.json        # Node.js dependencies
+│   └── vite.config.js      # Vite configuration
+├── venv/                   # Python virtual environment
+├── app.py                  # FastAPI application
+├── package-lock.json       # Root package lock
+├── package.json           # Root package configuration
+├── requirements.txt       # Python dependencies
+└── README.md             # This file
 ```
 
 ## Environment Variables
